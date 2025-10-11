@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+message Metadata {
+  string title = 1;
+  string artist = 2;
+  string album = 3;
+  double duration = 4;
+}
+
+message Playlist {
+  repeated string track_keys = 1;
+}
+
+message EqConfig {
+  double bass = 1;
+  double mid = 2;
+  double treble = 3;
+}
