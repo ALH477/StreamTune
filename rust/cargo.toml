@@ -1,0 +1,34 @@
+[package]
+name = "streamtune_backend"
+version = "1.0.0"
+edition = "2021"
+license = "LGPL-3.0-or-later"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+prost = "0.13.3"
+prost-types = "0.13.3"
+symphonia = { version = "0.5.4", features = ["mp3", "wav", "aac", "ogg"] }
+libopusenc = "0.2.1"
+anyhow = "1.0.86"
+thiserror = "1.0.63"
+fundsp = "0.11.0"
+cpal = "0.15.3"
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+bincode = "1.3.3"
+rodio = { version = "0.18.1", features = ["opus"] }
+uuid = { version = "1.10.0", features = ["v4"] }
+crc = "3.2.1"
+memmap2 = "0.9.4"
+byteorder = "1.5.0"
+parking_lot = "0.12.3"
+lru = "0.12.4"
+snappy = "0.5.0"
+futures = "0.3.30"
+streamdb = { path = "./streamdb" }
+
+[build-dependencies]
+prost-build = "0.13.3"
