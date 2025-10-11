@@ -4,6 +4,38 @@ StreamTune is a cross-platform application for organizing and playing music, bui
 
 StreamTune is designed for musicians and audiophiles seeking a robust, offline-first music management solution with low-latency playback and extensible DSP capabilities. It supports small-to-medium libraries (<10k tracks) with a focus on efficiency, reliability, and community-driven development.
 
+## Repo Structure
+``` 
+streamtune/
+├── LICENSE                    # LGPLv3 license text
+├── README.md                  # Detailed project documentation
+├── CONTRIBUTING.md            # Contribution guidelines
+├── rust/                      # Rust backend crate
+│   ├── Cargo.toml             # Rust dependencies and metadata
+│   ├── build.rs               # Protobuf codegen
+│   ├── src/
+│   │   ├── api.rs             # Core logic (AppState, track/playlist/DSP functions)
+│   │   ├── metadata.proto     # Protobuf schema for metadata, playlists, EQ
+│   │   └── streamdb.rs        # StreamDB with trie indexing, paged storage
+├── flutter/                   # Flutter app (mobile and desktop support)
+│   ├── pubspec.yaml           # Flutter dependencies
+│   ├── lib/
+│   │   ├── main.dart          # Main app UI
+│   │   └── dsp_beta.dart      # Beta DSP/EQ settings screen
+│   ├── android/               # Android-specific configs
+│   │   └── app/build.gradle   # Android build settings
+│   ├── ios/                   # iOS-specific configs
+│   │   └── Runner/Info.plist  # iOS permissions
+│   ├── macos/                 # macOS-specific configs
+│   │   └── Runner/Info.plist  # macOS permissions
+│   ├── windows/               # Windows-specific configs
+│   │   └── runner/main.cpp    # Windows entry point
+│   └── linux/                 # Linux-specific configs
+│       └── my_application.cc  # Linux entry point
+└── bridge_generated/          # FRB-generated bindings (auto-generated, not included)
+```
+
+
 ## Table of Contents
 - [Features](#features)
 - [Architecture](#architecture)
